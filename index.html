@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>Admin Dashboard</h1>
+            </div>
+            <div class="user-info">
+                <span id="current-date"></span>
+                <span id="user-name">John Doe</span>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="dashboard-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                        <li><i class="fas fa-users"></i> Users</li>
+                        <li><i class="fas fa-cog"></i> Settings</li>
+                        <li><i class="fas fa-file-alt"></i> Reports</li>
+                        <li><i class="fas fa-chart-bar"></i> Analytics</li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Area -->
+            <main class="main-area">
+                <!-- Quick Stats -->
+                <section class="stats-section">
+                    <div class="card">
+                        <h2>Quick Stats</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-users"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="total-users">245</span>
+                                    <span class="stat-label">Total Users</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-user-plus"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="new-users">12</span>
+                                    <span class="stat-label">New Users</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-percentage"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="active-users">87%</span>
+                                    <span class="stat-label">Active Users</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-dollar-sign"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="total-revenue">$4.5k</span>
+                                    <span class="stat-label">Total Revenue</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-section">
+                    <div class="card">
+                        <h2>Performance Overview</h2>
+                        <div class="charts-grid">
+                            <div class="chart-container">
+                                <canvas id="users-chart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenue-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Users Table -->
+                <section class="users-section">
+                    <div class="card">
+                        <h2>Recent Users</h2>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Last Login</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>john@example.com</td>
+                                        <td>2 hours ago</td>
+                                        <td><span class="status active">Active</span></td>
+                                        <td><button class="action-btn view"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <td>jane@example.com</td>
+                                        <td>5 hours ago</td>
+                                        <td><span class="status active">Active</span></td>
+                                        <td><button class="action-btn view"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bob Johnson</td>
+                                        <td>bob@example.com</td>
+                                        <td>1 day ago</td>
+                                        <td><span class="status inactive">Inactive</span></td>
+                                        <td><button class="action-btn view"><i class="fas fa-eye"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activity Log -->
+                <section class="activity-section">
+                    <div class="card">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-log">
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-user"></i></div>
+                                <div class="activity-info">
+                                    <div class="activity-text">New user registered</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="activity-info">
+                                    <div class="activity-text">Monthly report generated</div>
+                                    <div class="activity-time">5 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon"><i class="fas fa-cog"></i></div>
+                                <div class="activity-info">
+                                    <div class="activity-text">System settings updated</div>
+                                    <div class="activity-time">1 day ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
